@@ -1,0 +1,176 @@
+    <div class="big-header-banner">
+        <div id="header" class="page-header sticky">
+            <div class="navbar navbar-expand-md">
+                <div class="container-fluid p-0">
+
+                    <a href="" class="navbar-brand d-md-none" >
+                        <img id="logoCollapseLight"  height="40" class="logo-light" >
+                        <script>
+                            $(document).ready(function(){
+                                $("#logoCollapseLight").attr("src", config.params.images.logoCollapseLight).attr("alt", config.title)
+                            })
+                        </script>
+
+                        <img id="logoCollapseDark"  height="40" class="logo-dark d-none" >
+                        <script>
+                            $(document).ready(function(){
+                                $("#logoCollapseDark").attr("src", config.params.images.logoCollapseLight).attr("alt", config.title)
+                            })
+                        </script>
+                    </a>
+
+                    <div class="collapse navbar-collapse order-2 order-md-1">
+                        <div class="header-mini-btn">
+                            <label>
+                                <input id="mini-button" type="checkbox">
+                                <script>
+                                    //菜单栏最小化
+                                    $('#mini-button').on('click',function(){
+                                        trigger_lsm_mini(false);
+                                    });
+                                    function trigger_lsm_mini(isNoAnim){
+                                        if ($('.header-mini-btn input[type="checkbox"]').prop("checked")) {
+                                            $('.sidebar-nav').removeClass('mini-sidebar');
+                                            //221024: 调整左导航展开时,点击图标锚定定位失效
+                                            //$('.sidebar-nav .change-href').attr('href','javascript:;');
+                                            $('.sidebar-menu ul ul').css("display", "none");
+                                            if(isNoAnim){
+                                                $('.sidebar-nav').removeClass('animate-nav');
+                                                $('.sidebar-nav').width(220);
+                                            }
+                                            else{
+                                                $('.sidebar-nav').addClass('animate-nav');
+                                                $('.sidebar-nav').stop().animate({width: 170},200);
+                                            }
+                                        }else{
+                                            $('.sidebar-item.sidebar-show').removeClass('sidebar-show');
+                                            $('.sidebar-menu ul').removeAttr('style');
+                                            $('.sidebar-nav').addClass('mini-sidebar');
+                                            $('.sidebar-nav .change-href').each(function(){$(this).attr('href',$(this).data('change'))});
+                                            if(isNoAnim){
+                                                $('.sidebar-nav').removeClass('animate-nav');
+                                                $('.sidebar-nav').width(60);
+                                            }
+                                            else{
+                                                $('.sidebar-nav').addClass('animate-nav');
+                                                $('.sidebar-nav').stop().animate({width: 60},200);
+                                            }
+                                        }
+                                        //$('.sidebar-nav').css("transition","width .3s");
+                                    }
+                                </script>
+                                <svg viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                    <path class="line--1" d="M0 40h62c18 0 18-20-17 5L31 55"></path>
+                                    <path class="line--2" d="M0 50h80"></path>
+                                    <path class="line--3" d="M0 60h62c18 0 18 20-17-5L31 45"></path>
+                                </svg>
+                            </label>
+
+                        </div>
+
+                        <ul id="navMenu" class="navbar-nav site-menu" style="margin-right: 16px;"></ul>
+                        <script>
+                            $(document).ready(function(){
+                                $.each(navigationItems, function(i,item){
+                                    $li = $("<li>", { class: item.list? "menu-item-has-children": ""});
+                                    $a = $("<a>", { href: item.link });
+                                    $a_i = $("<i>", { class: item.icon + " fa-lg mr-2"})
+                                    $a_span = $("<span>").text(item.item);
+                                    
+                                    $a.append($a_i).append($a_span);
+                                
+                                    $ul_sub = $("<ul>", { class: "sub-menu"});
+                                    
+                                    $.each(item.list, function(i2,item2){
+                                        $li2 = $("<li>");
+                                        $a2 = $("<a>", { href: item2.url, text: item2.name });
+                                        $li2.append($a2);
+                                        $li2.appendTo($ul_sub);
+                                    })
+
+                                    $li.append($a).append($ul_sub);
+                                    $("#navMenu").append($li);
+                                })
+                            })
+                        </script>
+
+                        <div class="rounded-circle weather">
+                            <div id="he-plugin-simple" style="display: contents;"></div>
+                            <script>
+                            $(document).ready(function(){
+                                if(config.params.qweather.key){
+
+                                    var script = document.createElement('script');
+                                    script.src = "https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0";
+                                    script.type = "text/javascript";
+                                    script.id = "qweather-js";
+                                    
+                                    document.head.appendChild(script);
+
+                                    WIDGET = {
+                                        CONFIG: {
+                                            "modules": "01234",
+                                            "background": 5,
+                                            "tmpColor": "E4C600",
+                                            "tmpSize": 14,
+                                            "cityColor": "E4C600",
+                                            "citySize": 14,
+                                            "aqiColor": "#E4C600",
+                                            "aqiSize": 14,
+                                            "weatherIconSize": 24,
+                                            "alertIconSize": 18,
+                                            "padding": "10px 10px 10px 10px",
+                                            "shadow": "1",
+                                            "language": "auto",
+                                            "borderRadius": 5,
+                                            "fixed": "false",
+                                            "vertical": "middle",
+                                            "horizontal": "left",
+                                            "key": "{{ $.Site.Params.qweather.key }}"
+                                        }
+                                    }
+                                    
+                                }
+                            })
+                            </script>
+                        </div>
+
+                    </div>
+
+                    <ul class="nav navbar-menu text-xs order-1 order-md-2">
+                        <!-- 一言 -->
+                        <li class="nav-item mr-3 mr-lg-0 d-none d-lg-block">
+                            <div id="hitokoto">
+                                <a href="#" target="_blank" id="hitokoto_text"></a>
+                            </div>
+                            <script>
+                                $(document).ready(function(){
+                                    if(confirm.params.yiyan){
+                                        fetch('https://v1.hitokoto.cn')
+                                        .then(response => response.json())
+                                        .then(data => {
+                                        const hitokoto = document.getElementById('hitokoto_text')
+                                        hitokoto.href = 'https://hitokoto.cn/?uuid=' + data.uuid
+                                        hitokoto.innerText = data.hitokoto
+                                        })
+                                        .catch(console.error)
+                                    }
+                                })
+                            </script>
+                        </li>
+                        <!-- 一言 end -->
+
+                        <!--li class="nav-search ml-3 ml-md-4">
+                            <a href="javascript:" data-toggle="modal" data-target="#search-modal"><i
+                                    class="iconfont icon-search icon-2x"></i></a>
+                        </li-->
+                        <li class="nav-item d-md-none mobile-menu ml-3 ml-md-4">
+                            <a href="javascript:" id="sidebar-switch" data-toggle="modal"
+                                data-target="#sidebar"><i class="iconfont icon-classification icon-2x"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="placeholder" style="height:74px"></div>
+    </div>

@@ -1,0 +1,131 @@
+<div id="content" class="content-site customize-site">
+    <script>
+        $(document).ready(function(){
+            $.getJSON("data/webstack.json", function(data){
+                $.each(data, function(i,item){
+                    // 分类导航元素
+                    $.each(item.list, function(i2,item2){
+                        $div1 = $("<div>", {
+                            class: "d-flex flex-fill"
+                        });
+
+                        $div1_h4 = $("<h4>", {
+                            class: "text-gray text-lg mb-4"
+                        });
+
+                        $div1_h4_i = $("<i>", {
+                            class: "site-tag iconfont icon-tag icon-lg mr-1",
+                            id: "nav_"+i+"_"+i2,
+                        });
+
+                        $div1_h4.append($div1_h4_i).append($("<span>", { text: item2.term} ));
+                        $div1.append($div1_h4).append($("<div>", { class: "flex-fill" } ));
+                        
+                        $div1.appendTo($("#content"));
+
+                        
+                        // 单个元素
+                        $div2 = $("<div>", { class: "row" });
+
+                        $.each(item2.links, function(i3,item3){
+                            $div2_1 = $("<div>", { class: "url-card col-6  col-sm-6 col-md-4 col-xl-5a col-xxl-6a" });
+                            $div2_1_1 = $("<div>", { class: "url-body default" });
+
+                            $div2_1_1_a1 = $("<a>", {
+                                href: item3.url,
+                                target: "_blank",
+                                class: "card no-c mb-4",
+                                dataId: "",
+                                dataUrl: item3.url,
+                                dataToggle: "tooltip",
+                                dataPlacement:"bottom",
+                                dataOriginalTitle: item3.description
+                            });
+
+                            $div2_1_1_1 = $("<div>", { class: "card-body" });
+                            $div2_1_1_1_1 = $("<div>", { class: "url-content d-flex align-items-center" });
+                            $div2_1_1_1_1_1 = $("<div>", { class: "url-img mr-2 d-flex align-items-center justify-content-center" });
+
+                            $div2_1_1_1_1_1_img = $("<img>", {
+                                class: "lazy",
+                                src: config.params.logosPath + "/" + item3.logo,
+                                dataSrc: config.params.logosPath + "/" + item3.logo,
+                                alt: item3.title,
+                                onerror: ()=> {}
+                            })
+                            $div2_1_1_1_1_1.append($div2_1_1_1_1_1_img);
+
+                            $div2_1_1_1_1_2 = $("<div>", { class: "url-info flex-fill" });
+                            $div2_1_1_1_1_2_1 = $("<div>", { class: "text-sm overflowClip_1" });
+                            $div2_1_1_1_1_2_1.append($("<strong>").text(item3.title));
+
+                            $div2_1_1_1_1_2_2 = $("<p>", { class: "overflowClip_1 m-0 text-muted text-xs", text: item3.description });
+                            
+                            $div2_1_1_1_1_2.append($div2_1_1_1_1_2_1).append($div2_1_1_1_1_2_2);
+                            $div2_1_1_1_1.append($div2_1_1_1_1_1).append($div2_1_1_1_1_2);
+                            $div2_1_1_1.append($div2_1_1_1_1);
+                            $div2_1_1_a1.append($div2_1_1_1);
+
+                            $div2_1_1_a2 = $("<a>", {
+                                href: item3.href,
+                                class: "togo text-center text-muted is-views",
+                                dataId: i3,
+                                dataToggle: "tooltip",
+                                dataPlacement: "right",
+                                title: "直达",
+                                rel: "nofollow"
+                            });
+
+                            $div2_1_1_2_1 = $("<i>", { class: "iconfont icon-goto" });
+                            $div2_1_1_a2.append($div2_1_1_2_1);
+
+                            $div2_1_1.append($div2_1_1_a1).append($div2_1_1_a2);
+                            $div2_1.append($div2_1_1);
+                            $div2.append($div2_1);
+                        })
+
+                        $div2.appendTo($("#content"));
+
+                        $("#content").append($("<br/>"));
+                    });
+                    
+                });
+            });
+
+            // 重定向
+            setTimeout(function () {
+                console.log(window.location.hash);
+                console.log($(window.location.hash));
+                console.log($(window.location.hash).offset().top);
+                $("html, body").animate({
+                        scrollTop: $(window.location.hash).offset().top - 90
+                    }, {
+                        duration: 500,
+                        easing: "swing"
+                    });
+            }, 300);
+        })
+    </script>
+</div>
+
+<h4 class="text-gray text-lg mb-4">
+    <i class="iconfont icon-book-mark-line icon-lg mr-2" id="friendlink"></i>友情链接
+</h4>
+<div class="friendlink text-xs card">
+    <div id="friendlinkBox" class="card-body"> 
+    </div>
+    <script>
+        $(document).ready(function(){
+            $.each(friendChain, function(i,item){
+                var $a = $("<a>", { 
+                    href: item.url,
+                    title: item.description,
+                    text: item.title,
+                    target: "_blank"
+                });
+
+                $("#friendlinkBox").append($a);
+            })
+        })
+    </script>
+</div>

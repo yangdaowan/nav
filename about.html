@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="theme-color" content="#f9f9f9" />
+    
+    <!-- jquery必需第一个引入 -->
+    <script type="text/javascript" src="/assets/js/jquery.min-3.2.1.js" id="jquery-js"></script>
+
+    <!-- 引入配置文件 -->
+    <script src="data/config.js"></script>
+    <script src="data/data.js"></script>
+
+    <!-- 动态 -->
+    <script>
+        // 标题
+        document.title = config.title
+
+        // 网站图标
+        var $link = $("<link>", {
+            rel: "shortcut icon",
+            href: config.params.images.favicon
+        });
+        $("head").append($link);
+
+        // 关键词
+        var $keywords = $("<meta>", {
+            name: "keywords",
+            content: config.title
+        });
+        $("head").append($keywords);
+    </script>
+
+    <!-- 样式表 -->
+    <link rel="stylesheet" id="iconfont-css" href="/assets/css/iconfont-3.03029.1.css" type="text/css" media="all" />
+    <link rel="stylesheet" id="bootstrap-css" href="/assets/css/bootstrap.min-4.3.1.css" type="text/css" media="all" />
+
+    <style>
+        #aboutBox{text-align: center; padding: 10%;}
+    </style>
+</head>
+
+<body>
+    <!-- 关于内容 -->
+    <div id="aboutBox">
+
+        <p><h3>WebStack-Hugo-Static | 静态回归版本，去掉Hugo构造，保留主题，纯js配置</h3></p>
+        <p><h3>方便 -> 直接 -> 节约 -> 迅捷</h3></p>
+        <p><h3>Fork -> 修改data -> GitPager发布 -> 网站上线</h3></p>
+    </div>
+
+</body>
+
+</html>

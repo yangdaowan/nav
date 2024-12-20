@@ -1,0 +1,181 @@
+
+
+
+<div class="modal-dialog h-100 sidebar-nav-inner">
+    <div class="sidebar-logo border-bottom border-color">
+        <!-- logo -->
+        <div class="logo overflow-hidden">
+            <a href="" class="logo-expanded">
+                <img id="logoExpandLight"  height="40" class="logo-light" >
+                <script>
+                    $(document).ready(function(){
+                        $("#logoExpandLight").attr("src", config.params.images.logoExpandLight).attr("alt", config.title)
+                    })
+                </script>
+                <img id="logoExpandDark"  height="40" class="logo-dark d-none" >
+                <script>
+                    $(document).ready(function(){
+                        $("#logoExpandDark").attr("src", config.params.images.logoExpandDark).attr("alt", config.title)
+                    })
+                </script>
+            </a>
+            <a href="" class="logo-collapsed">
+                <img id="logoCollapseLight" height="40" class="logo-light" >
+                <script>
+                    $(document).ready(function(){
+                        $("#logoCollapseLight").attr("src", config.params.images.logoCollapseLight).attr("alt", config.title)
+                    })
+                </script>
+                <img id="logoCollapseDark" height="40" class="logo-dark d-none" >
+                <script>
+                    $(document).ready(function(){
+                        $("#logoCollapseDark").attr("src", config.params.images.logoCollapseDark).attr("alt", config.title)
+                    })
+                </script>
+            </a>
+        </div>
+        <!-- logo end -->
+    </div>
+    <div class="sidebar-menu flex-fill">
+        <div class="sidebar-scroll">
+            <div class="sidebar-menu-inner">
+                <ul id="webstackNav"></ul>
+                    <script>
+                        $(document).ready(function(){
+                            $.getJSON("data/webstack.json", function(data){
+                                $.each(data, function(i,item){
+                                    var $li = $("<li>",{
+                                        class: "sidebar-item"
+                                    })
+
+                                    // 一级菜单
+                                    var $a = $("<a>", {
+                                        href: "#nav_"+i+"_0",
+                                        class: "smooth change-href"
+                                    })
+
+                                    var $i1 = $("<i>", {
+                                        class: item.icon +" icon-fw icon-lg mr-2"
+                                    })
+
+                                    var $span = $("<span>").text(item.taxonomy)
+                                    $a.append($i1).append($span);
+
+                                    if(i > 0){
+                                        var $i2 = $("<i>", {
+                                            class: "iconfont icon-arrow-r-m sidebar-more text-sm"
+                                        })
+                                        $a.append($i2);
+                                    }
+
+                                    $a.appendTo($li);
+
+                                    // 二级菜单
+                                    if(i > 0){
+                                        var $ul_sub = $("<ul>");
+
+                                        $.each(item.list, function(i_sub,item_sub){
+                                            var $li_sub = $("<li>");
+                                            var $a_sub = $("<a>", {
+                                                href: "#nav_"+i+"_"+i_sub,
+                                                class: "smooth"
+                                            });
+                                            $a_sub.html($("<span>").text(item_sub.term));
+
+                                            $li_sub.append($a_sub);
+                                            $li_sub.appendTo($ul_sub);
+                                        })
+
+                                        $ul_sub.appendTo($li);
+                                    }
+                                    
+                                    $li.appendTo($("#webstackNav"));
+                                });
+                            });
+                        })
+                    </script>
+
+            </div>
+        </div>
+    </div>
+    <div class="border-top py-2 border-color">
+        <div class="flex-bottom">
+            <ul>
+                <!-- <li id="menu-item-237"
+                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-237 sidebar-item">
+                    <a href="{{ $.Site.Params.upload }}" target="_blank">
+                        <i class="fas fa-file-upload icon-fw icon-lg mr-2"></i>
+                        <span>网站提交</span>
+                    </a>
+                </li>
+
+                <li id="menu-item-212"
+                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-212 sidebar-item">
+                        <a href="#friendlink" class="smooth">
+                            <i class="fab fa-staylinked icon-fw icon-lg mr-2"></i>
+                            <span>友情链接</span>
+                        </a>
+                </li> -->
+
+                <li id="menu-item-213"
+                    class="menu-item menu-item-type-custom menu-item-object-custom menu-item-213 sidebar-item">
+                    <a target="_blank" rel="noopener" href="about.html">
+                        <i class="fa fa-info-circle icon-fw icon-lg mr-2"></i>
+                        <span>关于导航</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script>
+    var script = document.createElement('script');
+    script.type = "text/javascript";
+    if( config.params.expandSidebar ){
+        script.src = "assets/js/app-anim.js";
+        script.id = "appanim-js";
+    } else {
+        script.src = "assets/js/app-mini.js";
+        script.id = "appmini-js";
+    }
+    document.head.appendChild(script);
+</script>
+
+<script type='text/javascript' src="assets/js/tooltip-extend.js" id='iplaycode-nav-js'></script>
+
+<script>
+$(document).ready(function(){
+    $(document).on('click','a.smooth',function(ev) {
+        if(!$('#sidebar').hasClass('mini-sidebar')){
+            $(this).parent("li").siblings("li.sidebar-item").children('ul').slideUp(200);
+            if ($(this).next().css('display') == "none") { //展开
+                //展开未展开
+                // $('.sidebar-item').children('ul').slideUp(300);
+                $(this).next('ul').slideDown(200);
+                $(this).parent('li').addClass('sidebar-show').siblings('li').removeClass('sidebar-show');
+            }else{ //收缩
+                //收缩已展开
+                $(this).next('ul').slideUp(200);
+                //$('.sidebar-item.sidebar-show').removeClass('sidebar-show');
+                $(this).parent('li').removeClass('sidebar-show');
+            }
+        }
+        if($(this).attr("href").substr(0, 1) == "#"){
+            $("html, body").animate({
+                scrollTop: $($(this).attr("href")).offset().top - 90
+            }, {
+                duration: 500,
+                easing: "swing"
+            });
+        }
+        if($(this).hasClass('go-search-btn')){
+            $('#search-text').focus();
+        }
+        if(!$(this).hasClass('change-href')){
+            var menu =  $("a"+$(this).attr("href"));
+            menu.click();
+            toTarget(menu.parent().parent(),true,true);
+        }
+    });
+})
+</script>

@@ -1,79 +1,277 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 
 <head>
-    <link href="./assets/images/favicon.png" rel="shortcut icon">
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="theme-color" content="#f9f9f9" />
+    
+    <!-- jquery必需第一个引入 -->
+    <script type="text/javascript" src="/assets/js/jquery.min-3.2.1.js" id="jquery-js"></script>
 
+    <!-- 引入配置文件 -->
+    <script src="data/config.js"></script>
+    <script src="data/data.js"></script>
+
+    <!-- 动态 -->
     <script>
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?c05bb16ea908292af9f6c513087a1cc3";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
+        // 标题
+        document.title = config.title
+
+        // 网站图标
+        var $link = $("<link>", {
+            rel: "shortcut icon",
+            href: config.params.images.favicon
+        });
+        $("head").append($link);
+
+        // 关键词
+        var $keywords = $("<meta>", {
+            name: "keywords",
+            content: config.title
+        });
+        $("head").append($keywords);
+
+        // 百度SEO
+        if(config.params.seo.baiduSiteVer){
+            var $bsv = $("<meta>", {
+                name: "baidu-site-verification",
+                content: config.params.seo.baiduSiteVer
+            });
+            $("head").append($bsv);
+        }
+
     </script>
+
+    <!-- 样式表 -->
+    <link rel="stylesheet" id="block-library-css" href="/assets/css/block-library.min-5.6.2.css" type="text/css" media="all" />
+    <link rel="stylesheet" id="iconfont-css" href="/assets/css/iconfont-3.03029.1.css" type="text/css" media="all" />
+    <link rel="stylesheet" id="bootstrap-css" href="/assets/css/bootstrap.min-4.3.1.css" type="text/css" media="all" />
+    <!-- <link rel="stylesheet" id="fancybox-css" href="/assets/css/fancybox.min-3.5.7.css" type="text/css" media="all" /> -->
+    <link rel="stylesheet" id="iowen-css" href="/assets/css/style-3.03029.1.css" type="text/css" media="all" />
+    <link rel="stylesheet" id="custom-css" href="/assets/css/custom-style.css" type="text/css" media="all" />
+    <link rel="stylesheet" id="fortawesome-css" href="/assets/fontawesome-5.15.4/css/all.min.css" type="text/css" />
+
+    <!-- 脚本 -->
+    <script type="text/javascript" src="/assets/js/content-search.js" id="content-search-js"></script>
+
+    <!-- 百度统计 -->
     <script>
-    (adsbygoogle = window.adsbygoogle || []).push({
-        google_ad_client: "ca-pub-8550836177608334",
-        enable_page_level_ads: true
-    });
+        $(document).ready(function(){
+            if( config.params.seo.baiduhmid ){
+                var script = document.createElement('script');
+                script.src = "https://hm.baidu.com/hm.js?"+config.params.seo.baiduhmid;
+                document.head.appendChild(script);
+            }
+        })
     </script>
-    <meta charset="UTF-8">
-    <title>WebStack.cc - 设计师网址导航</title>
+    <!-- end 百度统计 -->
+
+    <!-- 51.LA 网站统计 -->
     <script>
-    if (navigator.appName == "Netscape") {
-        var language = navigator.language;
-    } else {
-        var language = navigator.browserLanguage;
-
-    }
-
-    if (language.indexOf("en") > -1) {
-        document.location.href = "en/index.html";
-    } else if (language.indexOf("zh") > -1) {
-        document.location.href = "cn/index.html";
-    } else {
-        document.location.href = "en/index.html";
-
-    }
+        $(document).ready(function(){
+            if( config.params.seo.tj51laid ){
+                $.getScript("//sdk.51.la/js-sdk-pro.min.js", function(data, textStatus, jqxhr) {
+                    console.log("51.LA load");
+                    LA.init({
+                        id: config.params.seo.tj51laid ,
+                        ck: config.params.seo.tj51lack
+                    })
+                });
+            }
+        })
     </script>
-    <meta charset="utf-8">
-    <meta content="IE=edge" http-equiv="X-UA-Compatible">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <meta content="viggo" name="author" />
-    <title>WebStack.cc - Collection of resources and tools for Designers</title>
-    <meta content="UI设计,UI设计素材,设计导航,网址导航,设计资源,创意导航,创意网站导航,设计师网址大全,设计素材大全,设计师导航,UI设计资源,优秀UI设计欣赏,设计师导航,设计师网址大全,设计师网址导航,产品经理网址导航,UX师网址导航,www.webstack.cc" name="keywords">
-    <meta content="WebStack - 收集国内外优秀设计网站、UI设计资源网站、灵感创意网站、Resources网站，定时更新分享优质产品设计书签。www.webstack.cc" name="description">
+    <!-- end 51.LA 网站统计 -->
 
-    <!-- / FB Open Graph -->
-    <meta content="article" property="og:type">
-    <meta content="http://www.webstack.cc/" property="og:url">
-    <meta content="WebStack - 收集国内外优秀设计网站、UI设计资源网站、灵感创意网站、Resources网站，定时更新分享优质产品设计书签。www.webstack.cc" property="og:title">
-    <meta content="UI设计,UI设计素材,设计导航,网址导航,设计资源,创意导航,创意网站导航,设计师网址大全,设计素材大全,设计师导航,UI设计资源,优秀UI设计欣赏,设计师导航,设计师网址大全,设计师网址导航,产品经理网址导航,UX师网址导航,www.webstack.cc" property="og:description">
-    <meta content="http://www.webstack.cc/assets/images/webstack_banner_cn.png" property="og:image">
-    <meta content="WebStack - 收集国内外优秀设计网站、UI设计资源网站、灵感创意网站、Resources网站，定时更新分享优质产品设计书签。www.webstack.cc" property="og:site_name">
-    <!-- / Twitter Cards -->
-    <meta content="summary_large_image" name="twitter:card">
-    <meta content="WebStack - 收集国内外优秀设计网站、UI设计资源网站、灵感创意网站、Resources网站，定时更新分享优质产品设计书签。www.webstack.cc" name="twitter:title">
-    <meta content="UI设计,UI设计素材,设计导航,网址导航,设计资源,创意导航,创意网站导航,设计师网址大全,设计素材大全,设计师导航,UI设计资源,优秀UI设计欣赏,设计师导航,设计师网址大全,设计师网址导航,产品经理网址导航,UX师网址导航,www.webstack.cc" name="twitter:description">
-    <meta content="http://www.webstack.cc/assets/images/webstack_banner_cn.png" name="twitter:image">
+    <!-- Google AdSense -->
+    <script>
+        $(document).ready(function(){
+            if( config.params.seo.GoogleAdsClient ){
+                var script = document.createElement('script');
+                script.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client="+ config.params.seo.GoogleAdsClient;
+                script.async = true;
+                script.crossOrigin = "anonymous";
+                
+                document.head.appendChild(script);
+                console.log("GoogleAdsClient load");
+            }
+        })
+    </script>
+    <!-- end Google AdSense -->
+
+    <!-- Fancybox -->
+    <script>
+        $(document).ready(function(){
+            if( config.params.fancybox ){
+                var $link = $("<link>", {
+                    rel: "stylesheet",
+                    href: "assets/css/fancybox.min-3.5.7.css",
+                    id: "fancybox-css"
+                });
+                $("head").append($link);
+
+                var script = document.createElement('script');
+                script.src = "assets/js/fancybox.min-3.5.7.js";
+                script.type = "text/javascript";
+                script.id = "fancybox-js";
+                
+                document.head.appendChild(script);
+            }
+        })
+    </script>
+    <!-- end Fancybox -->
 </head>
 
 <body>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111463289-1"></script>
+    <!-- 预加载动画 -->
+    <div id="loading"></div>
     <script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
-
-    gtag('config', 'UA-111463289-1');
+        $(document).ready(function(){
+            if (config.params.enablePreLoad) {
+                $("#loading").append($("<div>", {
+                    text: config.params.textPreLoad,
+                    class: "loader",
+                }))
+            
+                var siteWelcome = $('#loading');
+                siteWelcome.addClass('close');
+                setTimeout(function() {
+                    siteWelcome.remove();
+                }, 6000);
+            }
+        });
     </script>
+    
+    <div class="page-container">
+        <!-- 侧边导航 -->
+        <div id="sidebar" class="sticky sidebar-nav fade" ></div>
+        <!-- 内容主体 -->
+        <div id="contentBox" class="main-content flex-fill grid-bg">
+            <div id="contentHeader"></div>
+            <div id="contentMain"></div>
+        </div>
+        
+    </div>
+
+    <script>
+        var script = document.createElement('script');
+        script.type = "text/javascript";
+        if( config.params.expandSidebar ){
+            script.src = "assets/js/app-anim.js";
+            script.id = "appanim-js";
+        } else {
+            script.src = "assets/js/app-mini.js";
+            script.id = "appmini-js";
+        }
+        document.head.appendChild(script);
+    </script>
+
+    <!-- 加载主题 -->
+    <script>
+        if (config.params.nightMode) {
+            document.body.classList.add('io-black-mode');
+        } else {
+            document.body.classList.add('io-grey-mode');
+        }
+    </script>
+
+    <!-- 初始化导航 -->
+    <script>
+        if (config.params.expandSidebar) {
+            $("#sidebar").addClass("animate-nav")
+            $("#sidebar").removeClass("mini-sidebar")
+            $("#sidebar").width(170)
+        } else {
+            $("#sidebar").addClass("mini-sidebar")
+            $("#sidebar").removeClass("animate-nav")
+            $("#sidebar").width(60)
+        }
+        $("#sidebar").load("view/sidebar.html");
+    </script>
+
+    <!-- 加载主体内容 -->
+    <script>
+        $("#contentHeader").load("view/contentHeader.html");
+        $("#contentMain").load("view/contentMain.html");
+    </script>
+
+    <script type='text/javascript' src="assets/js/jquery.ui.touch-punch.min-0.2.2.js" id='jqueryui-touch-js'></script>
+    <script type='text/javascript' src="assets/js/clipboard.min-5.6.2.js" id='clipboard-js'></script>
+    <script type='text/javascript' src="assets/js/tooltip-extend.js" id='iplaycode-nav-js'></script>
+    <script type='text/javascript' id='popper-js-extra'>
+    /* <![CDATA[ */
+    var theme = {"ajaxurl":"","addico":"https:\/\/nav.baidu.cn\/wp-content\/themes\/onenav\/images\/add.png","order":"asc","formpostion":"top","defaultclass":"io-grey-mode","isCustomize":"1","icourl":"","icopng":".png","urlformat":"1","customizemax":"10","newWindow":"0","lazyload":"1","minNav":"1","loading":"1","hotWords":"baidu","classColumns":" col-sm-6 col-md-4 col-xl-5a col-xxl-6a ","apikey":"TWpBeU1UVTNOekk1TWpVMEIvZ1M2bFVIQllUMmxsV1dZelkxQTVPVzB3UW04eldGQmxhM3BNWW14bVNtWk4="};
+    /* ]]> */
+    </script>
+    <script type='text/javascript' src="assets/js/popper.min.js" id='popper-js'></script>
+    <script type='text/javascript' src="assets/js/bootstrap.min-4.3.1.js" id='bootstrap-js'></script>
+    <script type='text/javascript' src="assets/js/theia-sticky-sidebar-1.5.0.js" id='sidebar-js'></script>
+    <script type='text/javascript' src="assets/js/lazyload.min-12.4.0.js" id='lazyload-js'></script>
+    
+    <script>
+        $(document).ready(function(){
+            $(document).on('click','a.tab-noajax',function(ev) {
+                var url = $(this).data('link');
+                if(url)
+                    $(this).parents('.d-flex.flex-fill.flex-tab').children('.btn-move.tab-move').show().attr('href', url);
+                else
+                    $(this).parents('.d-flex.flex-fill.flex-tab').children('.btn-move.tab-move').hide();
+            });
+            
+        });
+    </script>
+    
+    <script>
+    //夜间(日间)模式
+    (function(){
+        if(document.cookie.replace(/(?:(?:^|.*;\s*)night\s*\=\s*([^;]*).*$)|^.*$/, "$1") === ''){
+            if(new Date().getHours() > 22 || new Date().getHours() < 6){
+                document.body.classList.remove('io-black-mode');
+                document.body.classList.add('io-grey-mode');
+                document.cookie = "night=1;path=/";
+                console.log('夜间模式开启');
+            }else{
+                document.body.classList.remove('night');
+                document.cookie = "night=0;path=/";
+                console.log('夜间模式关闭');
+            }
+        }else{
+            var night = document.cookie.replace(/(?:(?:^|.*;\s*)night\s*\=\s*([^;]*).*$)|^.*$/, "$1") || '0';
+            if(night == '0'){
+                document.body.classList.remove('night');
+            }else if(night == '1'){
+                document.body.classList.add('night');
+            }
+        }
+    })();
+    //夜间(日间)模式切换
+    $("#search-bg").css("background-image", "url({{ $.Site.Params.images.searchImageL }})");   //默认浅色背景
+    function switchNightMode(){
+        var night = document.cookie.replace(/(?:(?:^|.*;\s*)night\s*\=\s*([^;]*).*$)|^.*$/, "$1") || '0';
+        if(night == '0'){
+        $("#search-bg").css("background-image", "url({{ $.Site.Params.images.searchImageL }})");
+            document.body.classList.remove('io-grey-mode');
+            document.body.classList.add('io-black-mode');
+            document.cookie = "night=1;path=/"
+            console.log(' ');
+            $(".switch-dark-mode").attr("data-original-title","日间模式");
+            $(".mode-ico").removeClass("icon-night");
+            $(".mode-ico").addClass("icon-light");
+        }else{
+        $("#search-bg").css("background-image", "url({{ $.Site.Params.images.searchImageD }})")
+            document.body.classList.remove('io-black-mode');
+            document.body.classList.add('io-grey-mode');
+            document.cookie = "night=0;path=/"
+            console.log(' ');
+            $(".switch-dark-mode").attr("data-original-title","夜间模式");
+            $(".mode-ico").removeClass("icon-light");
+            $(".mode-ico").addClass("icon-night");
+        }
+    }
+    </script>
+    
 </body>
 
 </html>
