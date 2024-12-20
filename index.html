@@ -46,16 +46,16 @@
     </script>
 
     <!-- 样式表 -->
-    <link rel="stylesheet" id="block-library-css" href="/assets/css/block-library.min-5.6.2.css" type="text/css" media="all" />
-    <link rel="stylesheet" id="iconfont-css" href="/assets/css/iconfont-3.03029.1.css" type="text/css" media="all" />
-    <link rel="stylesheet" id="bootstrap-css" href="/assets/css/bootstrap.min-4.3.1.css" type="text/css" media="all" />
-    <!-- <link rel="stylesheet" id="fancybox-css" href="/assets/css/fancybox.min-3.5.7.css" type="text/css" media="all" /> -->
-    <link rel="stylesheet" id="iowen-css" href="/assets/css/style-3.03029.1.css" type="text/css" media="all" />
-    <link rel="stylesheet" id="custom-css" href="/assets/css/custom-style.css" type="text/css" media="all" />
-    <link rel="stylesheet" id="fortawesome-css" href="/assets/fontawesome-5.15.4/css/all.min.css" type="text/css" />
+    <link rel="stylesheet" id="block-library-css" href="./assets/css/block-library.min-5.6.2.css" type="text/css" media="all" />
+    <link rel="stylesheet" id="iconfont-css" href="./assets/css/iconfont-3.03029.1.css" type="text/css" media="all" />
+    <link rel="stylesheet" id="bootstrap-css" href="./assets/css/bootstrap.min-4.3.1.css" type="text/css" media="all" />
+    <!-- <link rel="stylesheet" id="fancybox-css" href="./assets/css/fancybox.min-3.5.7.css" type="text/css" media="all" /> -->
+    <link rel="stylesheet" id="iowen-css" href="./assets/css/style-3.03029.1.css" type="text/css" media="all" />
+    <link rel="stylesheet" id="custom-css" href="./assets/css/custom-style.css" type="text/css" media="all" />
+    <link rel="stylesheet" id="fortawesome-css" href="./assets/fontawesome-5.15.4/css/all.min.css" type="text/css" />
 
     <!-- 脚本 -->
-    <script type="text/javascript" src="/assets/js/content-search.js" id="content-search-js"></script>
+    <script type="text/javascript" src="./assets/js/content-search.js" id="content-search-js"></script>
 
     <!-- 百度统计 -->
     <script>
@@ -107,13 +107,13 @@
             if( config.params.fancybox ){
                 var $link = $("<link>", {
                     rel: "stylesheet",
-                    href: "assets/css/fancybox.min-3.5.7.css",
+                    href: "./assets/css/fancybox.min-3.5.7.css",
                     id: "fancybox-css"
                 });
                 $("head").append($link);
 
                 var script = document.createElement('script');
-                script.src = "assets/js/fancybox.min-3.5.7.js";
+                script.src = "./assets/js/fancybox.min-3.5.7.js";
                 script.type = "text/javascript";
                 script.id = "fancybox-js";
                 
@@ -159,10 +159,10 @@
         var script = document.createElement('script');
         script.type = "text/javascript";
         if( config.params.expandSidebar ){
-            script.src = "assets/js/app-anim.js";
+            script.src = "./assets/js/app-anim.js";
             script.id = "appanim-js";
         } else {
-            script.src = "assets/js/app-mini.js";
+            script.src = "./assets/js/app-mini.js";
             script.id = "appmini-js";
         }
         document.head.appendChild(script);
@@ -197,18 +197,18 @@
         $("#contentMain").load("view/contentMain.html");
     </script>
 
-    <script type='text/javascript' src="assets/js/jquery.ui.touch-punch.min-0.2.2.js" id='jqueryui-touch-js'></script>
-    <script type='text/javascript' src="assets/js/clipboard.min-5.6.2.js" id='clipboard-js'></script>
-    <script type='text/javascript' src="assets/js/tooltip-extend.js" id='iplaycode-nav-js'></script>
+    <script type='text/javascript' src="./assets/js/jquery.ui.touch-punch.min-0.2.2.js" id='jqueryui-touch-js'></script>
+    <script type='text/javascript' src="./assets/js/clipboard.min-5.6.2.js" id='clipboard-js'></script>
+    <script type='text/javascript' src="./assets/js/tooltip-extend.js" id='iplaycode-nav-js'></script>
     <script type='text/javascript' id='popper-js-extra'>
     /* <![CDATA[ */
     var theme = {"ajaxurl":"","addico":"https:\/\/nav.baidu.cn\/wp-content\/themes\/onenav\/images\/add.png","order":"asc","formpostion":"top","defaultclass":"io-grey-mode","isCustomize":"1","icourl":"","icopng":".png","urlformat":"1","customizemax":"10","newWindow":"0","lazyload":"1","minNav":"1","loading":"1","hotWords":"baidu","classColumns":" col-sm-6 col-md-4 col-xl-5a col-xxl-6a ","apikey":"TWpBeU1UVTNOekk1TWpVMEIvZ1M2bFVIQllUMmxsV1dZelkxQTVPVzB3UW04eldGQmxhM3BNWW14bVNtWk4="};
     /* ]]> */
     </script>
-    <script type='text/javascript' src="assets/js/popper.min.js" id='popper-js'></script>
-    <script type='text/javascript' src="assets/js/bootstrap.min-4.3.1.js" id='bootstrap-js'></script>
-    <script type='text/javascript' src="assets/js/theia-sticky-sidebar-1.5.0.js" id='sidebar-js'></script>
-    <script type='text/javascript' src="assets/js/lazyload.min-12.4.0.js" id='lazyload-js'></script>
+    <script type='text/javascript' src="./assets/js/popper.min.js" id='popper-js'></script>
+    <script type='text/javascript' src="./assets/js/bootstrap.min-4.3.1.js" id='bootstrap-js'></script>
+    <script type='text/javascript' src="./assets/js/theia-sticky-sidebar-1.5.0.js" id='sidebar-js'></script>
+    <script type='text/javascript' src="./assets/js/lazyload.min-12.4.0.js" id='lazyload-js'></script>
     
     <script>
         $(document).ready(function(){

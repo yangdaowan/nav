@@ -43,10 +43,10 @@ const config = {
         expandSidebar: true,
 
         // 网站每个导航地址logo存放地址
-        logosPath: "assets/images/logos",
+        logosPath: "./assets/images/logos",
 
         // logo图片资源不存在或者错误时，默认显示的logo
-        defaultLogo: "assets/images/logos/default.webp",
+        defaultLogo: "./assets/images/logos/default.webp",
 
         // 默认站点为深色(夜间)模式
         nightMode: false,
@@ -84,25 +84,25 @@ const config = {
         // 图片资源路径
         images: {
             // 网站favicon路径
-            favicon: "assets/images/bi-favicon.png",
+            favicon: "./assets/images/bi-favicon.png",
 
             // 搜索部分浅色背景图路径
-            searchImageLight: "assets/images/bg-dna.jpg",
+            searchImageLight: "./assets/images/bg-dna.jpg",
 
             // 搜索部分深色背景图路径
-            searchImageDark: "assets/images/bg-dna.jpg",
+            searchImageDark: "./assets/images/bg-dna.jpg",
 
             // 展开状态下的浅色logo路径
-            logoExpandLight: "assets/images/bi-expand-dark.png",
+            logoExpandLight: "./assets/images/bi-expand-dark.png",
 
             // 展开状态下的深色logo路径
-            logoExpandDark: "assets/images/bi-expand-light.png",
+            logoExpandDark: "./assets/images/bi-expand-light.png",
 
             // 折叠状态下的浅色logo路径
-            logoCollapseLight: "assets/images/bi.png",
+            logoCollapseLight: "./assets/images/bi.png",
 
             // 折叠状态下的深色logo路径
-            logoCollapseDark: "assets/images/bi.png"
+            logoCollapseDark: "./assets/images/bi.png"
         }
     },
 

@@ -23,42 +23,6 @@
                         <div class="header-mini-btn">
                             <label>
                                 <input id="mini-button" type="checkbox">
-                                <script>
-                                    //菜单栏最小化
-                                    $('#mini-button').on('click',function(){
-                                        trigger_lsm_mini(false);
-                                    });
-                                    function trigger_lsm_mini(isNoAnim){
-                                        if ($('.header-mini-btn input[type="checkbox"]').prop("checked")) {
-                                            $('.sidebar-nav').removeClass('mini-sidebar');
-                                            //221024: 调整左导航展开时,点击图标锚定定位失效
-                                            //$('.sidebar-nav .change-href').attr('href','javascript:;');
-                                            $('.sidebar-menu ul ul').css("display", "none");
-                                            if(isNoAnim){
-                                                $('.sidebar-nav').removeClass('animate-nav');
-                                                $('.sidebar-nav').width(220);
-                                            }
-                                            else{
-                                                $('.sidebar-nav').addClass('animate-nav');
-                                                $('.sidebar-nav').stop().animate({width: 170},200);
-                                            }
-                                        }else{
-                                            $('.sidebar-item.sidebar-show').removeClass('sidebar-show');
-                                            $('.sidebar-menu ul').removeAttr('style');
-                                            $('.sidebar-nav').addClass('mini-sidebar');
-                                            $('.sidebar-nav .change-href').each(function(){$(this).attr('href',$(this).data('change'))});
-                                            if(isNoAnim){
-                                                $('.sidebar-nav').removeClass('animate-nav');
-                                                $('.sidebar-nav').width(60);
-                                            }
-                                            else{
-                                                $('.sidebar-nav').addClass('animate-nav');
-                                                $('.sidebar-nav').stop().animate({width: 60},200);
-                                            }
-                                        }
-                                        //$('.sidebar-nav').css("transition","width .3s");
-                                    }
-                                </script>
                                 <svg viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                                     <path class="line--1" d="M0 40h62c18 0 18-20-17 5L31 55"></path>
                                     <path class="line--2" d="M0 50h80"></path>
