@@ -1,13 +1,13 @@
 const config = {
     // 网站基本信息
-    baseURL: "https://bioit.top/",
+    baseURL: "https://yangdaowan.github.io/nav/",
     // 语言
     languageCode: "zh-CN",
     // 网站标题
     title: "WebStack-Hugo 网址导航",
     // 主题
     theme: "WebStack-Hugo",
-    // 
+    //
     preserveTaxonomyNames: true,
     //
     disablePathToLower: true,
