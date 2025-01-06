@@ -37,12 +37,6 @@
               "description": "GitHub 开源社区。"
             },
             {
-              "title": "搜狗微信",
-              "logo": "搜狗微信.jpg",
-              "url": "https://weixin.sogou.com/",
-              "description": "搜狗微信搜索，一搜即达。"
-            },
-            {
               "title": "知乎",
               "logo": "知乎.png",
               "url": "https://www.zhihu.com/",
@@ -53,20 +47,13 @@
               "logo": "v2ex.jpg",
               "url": "https://www.v2ex.com/",
               "description": "V2EX 创意工作者的社区。"
-            },
-            {
-              "title": "关注我们",
-              "logo": "关注.jpg",
-              "url": "https://www.bioitee.com",
-              "qrcode": "qrcode.jpg",
-              "description": "微信公众号：BioIT 爱好者！"
             }
           ]
         }
       ]
     },
     {
-      "taxonomy": "科研办公",
+      "taxonomy": "基础设施",
       "icon": "fas fa-flask fa-lg",
       "list": [
         {
@@ -150,44 +137,79 @@
               "description": "云桌面,一站式云电脑服务平台。"
             }
           ]
-        },
+        }
+      ]
+    },
+    {
+      "taxonomy": "应用平台",
+      "icon": "fas fa-film fa-lg",
+      "list": [
         {
-          "term": "办公学习",
+          "term": "办公协作",
           "links": [
             {
-              "title": "有道词典",
-              "logo": "有道词典.png",
-              "url": "https://www.youdao.com/",
-              "description": "免费，即时的多语种在线翻译。"
+              "title": "钉钉、企微、飞书 的不同",
+              "logo": "腾讯视频.png",
+              "url": "https://www.cnblogs.com/yf8888888/p/17170837.html",
+              "description": "钉钉、企微、飞书 的不同"
             },
             {
-              "title": "有道翻译",
-              "logo": "有道词典.png",
-              "url": "http://fanyi.youdao.com/",
-              "description": "有道翻译。"
+              "title": "钉钉、企微、飞书 私有化部署对比",
+              "logo": "腾讯视频.png",
+              "url": "https://zhuanlan.zhihu.com/p/692178805",
+              "description": "企业微信、钉钉和飞书3个私有化部署底座对比分析"
             },
             {
-              "title": "谷歌翻译",
-              "logo": "谷歌翻译.jpg",
-              "url": "https://translate.google.cn/",
-              "description": "谷歌翻译。"
+              "title": "钉钉",
+              "logo": "钉钉.png",
+              "url": "https://www.dingtalk.com/",
+              "description": "钉钉 - 让进步发生"
             },
             {
-              "title": "ProcessOn",
-              "logo": "ProcessOn.png",
-              "url": "https://www.processon.com/",
-              "description": "免费在线作图、实时协作。"
+              "title": "企业微信",
+              "logo": "企业微信.png",
+              "url": "https://work.weixin.qq.com/",
+              "description": "企业微信 - 连接创造价值"
+            },
+            {
+              "title": "飞书",
+              "logo": "飞书.image",
+              "url": "https://www.feishu.cn/",
+              "description": "飞书 - 先进团队 先用飞书"
+            }
+          ]
+        },
+        {
+          "term": "低代码",
+          "links": [
+            {
+              "title": "草料（二维码集成）",
+              "logo": "百度贴吧.jpg",
+              "url": "https://cli.im/",
+              "description": "草料二维码"
+            },
+            {
+              "title": "简道云（微信集成）",
+              "logo": "百度贴吧.jpg",
+              "url": "https://www.jiandaoyun.com/",
+              "description": "简道云"
+            },
+            {
+              "title": "宜搭（钉钉集成）",
+              "logo": "战地之王.png",
+              "url": "https://www.aliwork.com/",
+              "description": "宜搭"
             }
           ]
         }
       ]
     },
     {
-      "taxonomy": "悠闲娱乐",
+      "taxonomy": "数据分析",
       "icon": "fas fa-film fa-lg",
       "list": [
         {
-          "term": "影音视频",
+          "term": "数据仓储",
           "links": [
             {
               "title": "腾讯视频",
@@ -228,7 +250,7 @@
           ]
         },
         {
-          "term": "游戏竞技",
+          "term": "BI工具",
           "links": [
             {
               "title": "百度贴吧",
