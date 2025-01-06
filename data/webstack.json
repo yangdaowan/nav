@@ -269,6 +269,34 @@
       ]
     },
     {
+      "taxonomy": "技术研究",
+      "icon": "far fa-folder-open fa-lg",
+      "list": [
+        {
+          "term": "前端技术",
+          "links": [
+            {
+              "title": "微前端",
+              "logo": "百度网盘.jpg",
+              "url": "https://blog.csdn.net/xgangzai/article/details/135944214",
+              "description": "三大主流微前端框架，you love who？"
+            }
+          ]
+        },
+        {
+          "term": "后端技术",
+          "links": [
+            {
+              "title": "Iconfinder",
+              "logo": "Iconfinder.png",
+              "url": "https://www.iconfinder.com",
+              "description": "2,100,000+ free and premium vector icons."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "taxonomy": "素材资源",
       "icon": "far fa-folder-open fa-lg",
       "list": [
